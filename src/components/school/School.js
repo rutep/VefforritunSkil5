@@ -15,7 +15,7 @@ export default class School extends Component {
 
     return (
       <section className="school">
-        <p>útfæra</p>
+        <p>Reyna</p>
       </section>
     );
   }
