@@ -11,6 +11,9 @@ import './Department.css';
 export default class Exams extends Component {
 
   render() {
+    const { match } = this.props;
+    console.log(match.param.slug);
+    
 
     return (
       <section className="department">

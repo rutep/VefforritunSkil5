@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Route, Link, Switch } from 'react-router-dom'
 
 import './Navigation.css';
+import Home from '../home'
+import School from '../school';
 
 require('isomorphic-fetch');
 
@@ -41,14 +44,21 @@ class Fetch extends Component {
 
     let result = data.schools;
     
-    console.log(result);
-    
 
     return (
-      <div class="links box">
-        {result.map((item, i) => (
-          <a key={i} href={item.link}> {item.name}   </a>
-        ))}
+      <div>
+        <div class="links">
+          {result.map((item, i) => (
+            <Link to={item.slug}> {item.name} </Link> 
+          ))}
+
+          <Switch>
+            {result.map((item, i) => (
+            <Route exact path={"/:slug"} component={item.slug}/> 
+            ))}
+          </Switch>
+        </div>
+        <Route exact path="/" component={Home} />
       </div>
     );
   }
@@ -58,7 +68,7 @@ export default class Navigation extends Component {
   render() {
     return (
       <div>
-        <h1> <u> Próftöflur </u> </h1>
+        <h1> <u> <Link to="/">  Próftöflur  </Link></u> </h1>
         <Fetch url='https://vefforritun2-2018-v4-synilausn.herokuapp.com/'/>
       </div>
     );

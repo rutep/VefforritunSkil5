@@ -16,8 +16,6 @@ class App extends Component {
       <main className="app">
         <Navigation>
         </Navigation>
-        <Home>
-        </Home>
       </main>
     );
   }
