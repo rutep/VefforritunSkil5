@@ -1,33 +1,15 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+// import PropTypes from 'prop-types';
+// import Helmet from 'react-helmet';
 
 import './Home.css';
 
 /* hér ætti að sækja forsíðu vefþjónustu til að sækja stats */
 
-class Fetch extends Component {
-  state = { data: null, loading: true, error: false }
-
-  async componentDidMount() {
-    try {
-      const data = await this.fetchData();
-      this.setState({ data, loading: false });
-    } catch (e) {
-      console.error('Error fetching data', e);
-      this.setState({ error: true, loading: false });
-    }
-  }
-
-  async fetchData() {
-    const { url } = this.props;
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-  }
+export default class Home extends Component {
 
   render() {
-    const { data, loading, error } = this.state;
+    const { data, loading, error } = this.props;
 
     if (loading) {
       return (<div>Sæki gögn...</div>);
@@ -37,8 +19,7 @@ class Fetch extends Component {
       return (<div>Villa við að sækja gögn</div>);
     }
 
-    let result = data.stats;
-  
+    const result = data.stats;
 
     return (
       <div>
@@ -69,16 +50,6 @@ class Fetch extends Component {
         </table>
       </div>
       
-    );
-  }
-}
-
-export default class Navigation extends Component {
-  render() {
-    return (
-      <div>
-        <Fetch url='https://vefforritun2-2018-v4-synilausn.herokuapp.com/stats'/>
-      </div>
     );
   }
 }

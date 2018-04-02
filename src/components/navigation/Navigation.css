@@ -1,12 +1,12 @@
 /* útfæra */
 
 .links {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 h1{
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
