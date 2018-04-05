@@ -1,1 +1,13 @@
 /* útfæra */
+
+h2 {
+    font-size: 16px;
+}
+
+@media only screen and (max-width:
+870px) {
+  .department{
+    width: auto;
+    text-align: center;
+  }
+}

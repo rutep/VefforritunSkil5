@@ -22,7 +22,7 @@ export default class Home extends Component {
     const result = data.stats;
 
     return (
-      <div>
+      <div class="box">
         <h2>
           Tölvfræði
         </h2>

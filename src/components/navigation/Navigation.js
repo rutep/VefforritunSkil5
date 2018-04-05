@@ -26,10 +26,12 @@ export default class Navigation extends Component {
     const result = data.schools;
 
     return (
-      <div class="links">
-        {result.map((item, i) => (
-          <Link onClick={handleClic} to={item.slug}> {item.name} </Link>
-        ))}
+      <div class="box">
+        <div class="links">
+          {result.map((item, i) => (
+            <Link onClick={handleClic} to={item.slug}> {item.name} </Link>
+          ))}
+        </div>
       </div>
     );
   }
